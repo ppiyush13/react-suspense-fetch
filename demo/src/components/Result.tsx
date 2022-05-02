@@ -7,6 +7,7 @@ interface ResultProps {
 
 interface Show {
   show: {
+    id: number;
     name: string;
     image: {
       medium: string;
@@ -25,7 +26,7 @@ export const Result = ({ query }: ResultProps) => {
     <FlexBox column gap={'1rem'}>
       {shows.map(({ show }) => {
         return (
-          <div>
+          <div key={show.id}>
             <img src={show.image.medium}></img>
           </div>
         );

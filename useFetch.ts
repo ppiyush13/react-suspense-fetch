@@ -1,10 +1,6 @@
-import { useMemo } from 'react';
-
 const fetcher = async (url: string) => {
   const response = await fetch(url);
-  const data = await response.json();
-
-  return response.status === 404 ? [] : data;
+  return response.json();
 };
 
 const map = new Map();
@@ -30,6 +26,5 @@ const fetchData = (url: string) => {
 };
 
 export const useFetch = (url: string) => {
-  const data = useMemo(() => fetchData(url), [url]);
-  return data;
+  return fetchData(url);
 };

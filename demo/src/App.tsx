@@ -3,7 +3,7 @@ import { Result } from './components/Result';
 import { Search } from './components/Search';
 
 export const App = function App() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('game');
   const [deferredQuery, setDeferredQuery] = useState(query);
   const [isPending, startTransition] = useTransition();
 
