@@ -27,7 +27,7 @@ export const Result = ({ query }: ResultProps) => {
       {shows.map(({ show }) => {
         return (
           <div key={show.id}>
-            <img src={show.image.medium}></img>
+            <img src={show.image.medium} width={'100%'}></img>
           </div>
         );
       })}

@@ -1,4 +1,5 @@
 import { ChangeEventHandler } from 'react';
+import styled from 'styled-components';
 
 interface SearchProps {
   onChange: ChangeEventHandler;
@@ -6,9 +7,10 @@ interface SearchProps {
 }
 
 export const Search = ({ onChange, query }: SearchProps) => {
-  return (
-    <div>
-      <input type={'text'} onChange={onChange} value={query}></input>
-    </div>
-  );
+  return <TextBox type={'text'} onChange={onChange} value={query}></TextBox>;
 };
+
+const TextBox = styled.input`
+  flex: 1;
+  padding: 0.5rem 1rem;
+`;
