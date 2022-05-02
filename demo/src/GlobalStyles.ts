@@ -3,6 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   html {
     font-size: 100%;
+
+    * {
+      box-sizing: border-box;
+    }
   }
 
   body {
