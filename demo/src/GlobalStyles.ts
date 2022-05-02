@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   html {
     font-size: 100%;
+    background-color: ${(props) => props.theme.background};
 
     * {
       box-sizing: border-box;

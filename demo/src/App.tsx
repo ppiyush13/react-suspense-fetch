@@ -25,7 +25,6 @@ export const App = function App() {
 };
 
 const Main = styled(FlexBox).attrs({ as: 'main' })`
-  max-width: 768px;
+  max-width: 1024px;
   margin: auto;
-  padding: 1rem;
 `;
