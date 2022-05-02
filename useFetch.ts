@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 const fetcher = async (url: string) => {
   const response = await fetch(url);
   const data = await response.json();
@@ -13,7 +15,7 @@ const fetchData = (url: string) => {
     if (promise) throw promise;
 
     /* if promise is resolved, then remove from map */
-    map.delete(url);
+    //map.delete(url);
     if (error) throw error;
     else return data;
   }
@@ -28,6 +30,6 @@ const fetchData = (url: string) => {
 };
 
 export const useFetch = (url: string) => {
-  return fetchData(url);
+  const data = useMemo(() => fetchData(url), [url]);
+  return data;
 };
-
