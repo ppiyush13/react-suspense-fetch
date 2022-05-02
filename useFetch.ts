@@ -30,3 +30,4 @@ const fetchData = (url: string) => {
 export const useFetch = (url: string) => {
   return fetchData(url);
 };
+
