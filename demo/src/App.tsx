@@ -7,7 +7,7 @@ import { Search } from './components/Search';
 export const App = function App() {
   const [query, setQuery] = useState('game');
   const [deferredQuery, setDeferredQuery] = useState(query);
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);

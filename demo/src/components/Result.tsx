@@ -29,8 +29,9 @@ export const Result = ({ query }: ResultProps) => {
           key={show.id}
           src={show.image.original}
           loading={'lazy'}
+          alt={'show poster'}
           width={'100%'}
-          height='100%'
+          height={'100%'}
         />
       ))}
     </ShowsGrid>
