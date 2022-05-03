@@ -1,4 +1,3 @@
-import { FlexBox } from 'react-styled-flex';
 import styled from 'styled-components';
 import { useFetch } from '../../../useFetch';
 
@@ -25,20 +24,22 @@ export const Result = ({ query }: ResultProps) => {
 
   return (
     <ShowsGrid>
-      {shows.map(({ show }) => {
-        return (
-          <>
-            <img src={show.image.original} width={'100%'} height='100%'></img>
-          </>
-        );
-      })}
+      {shows.map(({ show }) => (
+        <img
+          key={show.id}
+          src={show.image.original}
+          loading={'lazy'}
+          width={'100%'}
+          height='100%'
+        />
+      ))}
     </ShowsGrid>
   );
 };
 
 const ShowsGrid = styled.div`
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(3, 1fr);
 
   @media (max-width: 768px) {

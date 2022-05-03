@@ -27,4 +27,5 @@ export const App = function App() {
 const Main = styled(FlexBox).attrs({ as: 'main' })`
   max-width: 1024px;
   margin: auto;
+  padding: 0 2rem 2rem 2rem;
 `;
