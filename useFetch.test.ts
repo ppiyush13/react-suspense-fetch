@@ -1,3 +1,12 @@
+import { renderHook } from '@testing-library/react-hooks';
+import { useFetch } from './useFetch';
+
 describe('useFetch', () => {
-  it.todo('should make fetch call');
+  it.skip('should make fetch call', () => {
+    const { result } = renderHook(() =>
+      useFetch('http://example.com/user.json'),
+    );
+
+    console.log(result);
+  });
 });

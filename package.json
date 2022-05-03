@@ -1,20 +1,44 @@
 {
-  "name": "react-fetch",
+  "name": "react-suspense-fetch",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
+  "description": "Simple primitive for fetching data with react suspense",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "0BSD",
+  "author": {
+    "name": "Piyush Lodaya",
+    "email": "ppiyush13@gmail.com"
+  },
+  "main": "useFetch.ts",
+  "scripts": {
+    "test": "run-p test:*",
+    "test:eslint": "eslint --max-warnings=0 .",
+    "test:types": "tsc --noEmit",
+    "test:code": "jest",
+    "build": "tsc && vite build",
+    "lint": "run-s lint:*",
+    "lint:eslint": "eslint --fix .",
+    "lint:pkg-json": "sort-package-json"
+  },
   "devDependencies": {
-    "@types/jest": "^27.4.1",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
+    "@testing-library/react-hooks": "^8.0.0",
+    "@types/jest": "^27.5.0",
     "@types/react": "^18.0.8",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
     "jest": "^28.0.3",
+    "jest-environment-jsdom": "^28.0.2",
     "msw": "^0.39.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.6.2",
-    "react": "^18.1.0"
+    "react": "^18.1.0",
+    "react-dom": "^17.0.2",
+    "sort-package-json": "^1.57.0",
+    "typescript": "^4.6.4"
   }
 }
