@@ -30,14 +30,16 @@ const StickyContainer = styled.div`
 const TextBox = styled.input`
   width: 100%;
   padding: 0.5rem;
-  background-color: ${(props) => props.theme.color.primary};
   border: none;
   outline: none;
+
+  background-color: ${(props) => props.theme.color.primary};
   color: ${(props) => props.theme.color.secondary};
+
   font-size: 1.5rem;
   border-bottom: 4px solid ${(props) => props.theme.color.secondary};
 
   ::placeholder {
-    color: ${(props) => props.theme.color.secondary};
+    color: ${(props) => props.theme.color.secondary25};
   }
 `;
