@@ -11,14 +11,14 @@
   },
   "main": "useFetch.ts",
   "scripts": {
-    "test": "run-s test:*",
+    "test": "run-p test:*",
     "test:eslint": "eslint --max-warnings=0 .",
     "test:types": "tsc --noEmit",
     "test:code": "jest",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint --fix .",
     "lint:pkg-json": "sort-package-json",
-    "build-demo": "cd demo && npm run build-demo"
+    "build": "cd demo && npm run build-demo"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
