@@ -6,11 +6,15 @@ on:
     branches:
       - main
 
+env:
+  DEMO_PATH: ./demo
+  DIST_ARTIFACT: demo-build-artifacts
+
 jobs:
   # Set the job key. The key is displayed as the job name when a job name is not provided.
-  test:
+  main:
     # Name the Job
-    name: 'Job: Test and build'
+    name: 'Job: Test useFetch'
     # Set the type of machine to run on
     runs-on: ubuntu-latest
     steps:
@@ -21,17 +25,48 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '17.x'
-      - run: npm ci
-      - run: npm run test
-      - run: npm run build
+      - name: Install and build
+        run: |
+          npm ci
+          npm run test
 
-  deploy:
-    name: 'Job: Deploy'
+  demo_site:
+    name: 'Job: Test and build demo site'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17.x'
+      - name: Install, test and build
+        working-directory: ${{ env.DEMO_PATH }}
+        run: |
+          npm ci
+          npm run test
+          npm run build
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.DIST_ARTIFACT }}
+          path: ${{ env.DEMO_PATH }}/dist
+
+  deploy:
+    name: 'Job: Deploy demo site'
+    runs-on: ubuntu-latest
+    needs: [main, demo_site]
+    env:
+      DIST_PATH: ./dist
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ env.DIST_ARTIFACT }}
+          path: ${{ env.DIST_PATH }}
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4.3.3
+        uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./demo/dist
+          publish_dir: ${{ env.DIST_PATH }}

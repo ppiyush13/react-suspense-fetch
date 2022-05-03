@@ -17,8 +17,7 @@
     "test:code": "jest",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint --fix .",
-    "lint:pkg-json": "sort-package-json",
-    "build": "cd demo && npm run build"
+    "lint:pkg-json": "sort-package-json"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
