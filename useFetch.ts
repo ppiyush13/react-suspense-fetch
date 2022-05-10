@@ -1,30 +1,27 @@
-const fetcher = async (url: string) => {
+/* Simple fetcher function that accepts a URL, makes a fetch request and returns data in JSON format */
+const fetcher = async <T>(url: string): Promise<T> => {
   const response = await fetch(url);
   return response.json();
 };
 
-const map = new Map();
-const fetchData = (url: string) => {
-  if (map.has(url)) {
-    const { promise, data, error } = map.get(url);
+/* Cache to store fetch result, which can be a promise, error or data */
+const cache = new Map();
+
+/* Suspends the rendering by throwing a promise. Returns the result (data or error) when thrown promise settles */
+export const useFetch = <T>(url: string): T => {
+  if (cache.has(url)) {
+    const { promise, data, error } = cache.get(url);
 
     if (promise) throw promise;
-
-    /* if promise is resolved, then remove from map */
-    //map.delete(url);
     if (error) throw error;
     else return data;
   }
 
   /** aka suspender */
-  const promise = fetcher(url)
-    .then((data) => map.set(url, { data }))
-    .catch((error) => map.set(url, { error }));
+  const promise = fetcher<T>(url)
+    .then((data) => cache.set(url, { data }))
+    .catch((error) => cache.set(url, { error }));
 
-  map.set(url, { promise });
+  cache.set(url, { promise });
   throw promise;
-};
-
-export const useFetch = (url: string) => {
-  return fetchData(url);
 };
