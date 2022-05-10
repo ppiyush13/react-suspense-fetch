@@ -9,7 +9,6 @@
     "name": "Piyush Lodaya",
     "email": "ppiyush13@gmail.com"
   },
-  "main": "./build/useFetch.js",
   "scripts": {
     "test": "run-p test:*",
     "test:eslint": "eslint --max-warnings=0 .",
@@ -17,10 +16,7 @@
     "test:code": "jest",
     "lint": "run-s lint:*",
     "lint:eslint": "eslint --fix .",
-    "lint:pkg-json": "sort-package-json",
-    "build": "run-s build:*",
-    "build:clean": "rimraf build",
-    "build:code": "tsc --excludeFiles useFetch.test.ts"
+    "lint:pkg-json": "sort-package-json"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
