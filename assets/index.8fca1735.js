@@ -95,6 +95,7 @@ Error generating stack: `+o.message+`
   html {
     font-size: 100%;
     background-color: ${e=>e.theme.color.primary};
+    overflow-y: scroll;
 
     * {
       box-sizing: border-box;
