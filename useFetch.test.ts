@@ -1,12 +1,34 @@
 import { renderHook } from '@testing-library/react';
+import { rest } from 'msw';
+import { mswServer } from './test-utils/msw-server';
+import { waitForUpdate } from './test-utils/waitForUpdate';
 import { useFetch } from './useFetch';
 
 describe('useFetch', () => {
-  it.skip('should make fetch call', () => {
+  it('should make fetch call', async () => {
+    /* arrange */
+    mswServer.use(
+      rest.get('http://example.com/user.json', (req, res, ctx) => {
+        return res(
+          ctx.status(200),
+          ctx.json({
+            id: 'ppiyush13',
+            name: 'Piyush Lodaya',
+          }),
+        );
+      }),
+    );
+
+    /* act */
     const { result } = renderHook(() =>
       useFetch('http://example.com/user.json'),
     );
 
-    console.log(result);
+    /* assert */
+    await waitForUpdate(result);
+    expect(result.current).toEqual({
+      id: 'ppiyush13',
+      name: 'Piyush Lodaya',
+    });
   });
 });
