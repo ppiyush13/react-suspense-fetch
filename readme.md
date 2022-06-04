@@ -12,7 +12,7 @@ I have created a primitive React hook to understand `render-as-you-fetch` patter
 
 # Hook flow
 
-![useFetch hook flowchart](./assets/useFetch-Hook-Flowchart.png)
+![useFetch hook flowchart](./assets/react-suspense-fetch-flowchart.drawio.png)
 
 ## License
 
