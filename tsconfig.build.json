@@ -1,0 +1,23 @@
+{
+  "include": ["useFetch.ts"],
+  "exclude": ["demo"],
+  "compilerOptions": {
+    "outDir": "build",
+    "target": "es2017",
+    "declaration": true,
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "moduleResolution": "node"
+  }
+}
