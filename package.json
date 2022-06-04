@@ -3,12 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "description": "Simple primitive for fetching data with react suspense",
-  "keywords": [],
+  "keywords": [
+    "react suspense",
+    "fetch",
+    "render-as-you-fetch",
+    "react-suspense-fetch"
+  ],
   "license": "0BSD",
   "author": {
     "name": "Piyush Lodaya",
     "email": "ppiyush13@gmail.com"
   },
+  "main": "./build/useFetch.js",
+  "types": "./build/useFetch.d.ts",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "test": "run-p test:*",
     "test:eslint": "eslint --max-warnings=0 .",
