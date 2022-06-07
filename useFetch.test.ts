@@ -1,7 +1,6 @@
 import { renderHook } from '@testing-library/react';
 import { rest } from 'msw';
-import { mswServer } from './test-utils/msw-server';
-import { waitForUpdate } from './test-utils/waitForUpdate';
+import { mswServer, waitForUpdate } from './test-utils';
 import { useFetch } from './useFetch';
 
 describe('useFetch', () => {
